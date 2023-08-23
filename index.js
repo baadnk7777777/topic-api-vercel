@@ -33,7 +33,7 @@ async function hashPassword(password) {
   }
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World Toeic Services!');
 });
 
 app.post('/api/create', async (req, res)  =>  {
