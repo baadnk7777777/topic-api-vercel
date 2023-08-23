@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4252;
 
 const firebaseConfig = {
-  databaseURL: process.env.DATABASE_URL,
+  databaseURL: 'https://toeic-api-c54f8-default-rtdb.asia-southeast1.firebasedatabase.app/',
 };
 
 const app = express();
