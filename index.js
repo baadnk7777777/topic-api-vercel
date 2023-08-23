@@ -11,17 +11,17 @@ const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 4252;
 
-const firebaseConfig = {
-  databaseURL: 'https://toeic-api-c54f8-default-rtdb.asia-southeast1.firebasedatabase.app/',
-};
+// const firebaseConfig = {
+//   databaseURL: 'https://toeic-api-c54f8-default-rtdb.asia-southeast1.firebasedatabase.app/',
+// };
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialize Firebase app and database
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getDatabase(firebaseApp);
+// const firebaseApp = initializeApp(firebaseConfig);
+// const db = getDatabase(firebaseApp);
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -36,27 +36,27 @@ app.get('/', (req, res) => {
     res.send('Hello World Toeic Services!');
 });
 
-app.post('/api/create', async (req, res)  =>  {
-    var username = req.body.username;
-    var password = req.body.password;
+// app.post('/api/create', async (req, res)  =>  {
+//     var username = req.body.username;
+//     var password = req.body.password;
    
 
-    try {
+//     try {
        
-        hashPassword(password).then((hash) => {
-            const passwordHash = hash;
-            console.log(passwordHash);
-            set(ref(db, 'users/' + username), {
-                username: username,
-                password: passwordHash,
-                score:0,
-                date: new Date().toISOString(),
-              })
-        });
+//         hashPassword(password).then((hash) => {
+//             const passwordHash = hash;
+//             console.log(passwordHash);
+//             set(ref(db, 'users/' + username), {
+//                 username: username,
+//                 password: passwordHash,
+//                 score:0,
+//                 date: new Date().toISOString(),
+//               })
+//         });
       
-      return res.status(200).json({ message: 'User created' });
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ message: 'Internal server error' });
-    }
-});
+//       return res.status(200).json({ message: 'User created' });
+//     } catch (error) {
+//         console.log(error);
+//         return res.status(500).json({ message: 'Internal server error' });
+//     }
+// });
